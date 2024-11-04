@@ -1,14 +1,18 @@
-let input = document.querySelector("input");
+let b = document.querySelector(".b");
 let output = document.querySelector(".containerOutput");
 let sortButton = document.querySelector(".sort");
 let isAscending = true;
+let showlists=false
+
 function creatingElement() {
   let div = document.createElement("div");
   div.classList.add("output");
   div.setAttribute("draggable", "true");
   div.innerHTML = `
-             <input type="text" class="a" >
-             <div>
+             <input type="text" class="a" value="${b.value}" readonly >
+             <div class="bu">
+             <button class="edit" onclick="edit(this)" ><i class="fa-solid fa-pen"></i></button>
+           <button class="save" onclick="save(this)" ><i class="fa-solid fa-check"></i></button>
               <button class="delete" onclick="sil(this)">
               <img src="assets/Group 52.svg" alt="sort" >
               </button>
@@ -19,15 +23,46 @@ function creatingElement() {
   div.addEventListener("dragover", dragOver);
   div.addEventListener("drop", drop);
 }
+
 creatingElement();
+
 function add() {
-  creatingElement();
+  showlists=!showlists
+  if(showlists==true){
+    output.style.display="block"
+    b.style.display="none"
+    creatingElement();
+  }
+  else{
+    b.value=''
+    output.style.display="none"
+    b.style.display="block"
+  }
 }
 function sil(element) {
   let div = element.parentElement;
   let iv = div.parentElement;
   iv.remove();
 }
+
+function save(element){
+  let e = element.parentElement;
+  let d=e.parentElement;
+  let u=d.querySelector("input");
+  u.setAttribute('value', `${u.value}`);
+  u.setAttribute('readonly', true);
+  console.log(u);
+
+}
+function edit(element){
+  let e = element.parentElement;
+  let d=e.parentElement;
+  let u=d.querySelector("input");
+  u.focus();
+  u.removeAttribute("readonly");   
+
+}
+
 function sortItems() {
   let items = Array.from(output.children);
   items.sort((a, b) => {

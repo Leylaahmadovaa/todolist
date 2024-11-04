@@ -80,7 +80,7 @@ justify-content: center;
 }
 .output{
     border-radius: 10px;
-    width: 286px;
+    width: 320px;
     display: flex;
     justify-content: space-between;
     padding: 10px;
@@ -101,6 +101,27 @@ justify-content: center;
 .delete:hover{
     background-color: #833AE0;
 }
+.edit{
+    background-color: #FFDC40;
+    border-radius: 100%;
+    border: 1px solid #FFDC40;
+    width: 30px;
+    height: 25px;
+    color: white;
+}
+.save{
+    background-color: #FFDC40;
+    border-radius: 100%;
+    border: 1px solid #FFDC40;
+    width: 30px;
+    height: 25px;
+    color: white;
+}
+.bu{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
 .add:hover{
     background-color: #FFDC40;
     
@@ -113,4 +134,12 @@ justify-content: center;
     border: 1px solid #C4C4C4;
     padding: 7px;
     border-radius: 20px;
+}
+.b{
+    display: flex;
+    align-items: end;
+    font-size: 19px;
+    border: none;
+    outline: none;
+    margin-bottom: 30px;
 }
